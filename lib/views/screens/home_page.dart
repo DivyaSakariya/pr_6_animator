@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage>
 
   late AnimationController animationController;
 
-  late Animation index;
+  late Animation rotate;
 
   @override
   void initState() {
@@ -26,14 +26,15 @@ class _HomePageState extends State<HomePage>
 
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 5),
-    );
+      duration: const Duration(seconds: 30),
+    )..repeat();
 
-    index = Tween(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(
-        CurvedAnimation(parent: animationController, curve: Curves.easeInOut));
+    rotate = Tween(begin: 0.0, end: pi * 2).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
   }
 
   @override
@@ -63,7 +64,7 @@ class _HomePageState extends State<HomePage>
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 30),
               child: Text(
-                "MilkyWay Galaxy",
+                "Solar System",
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.white,
@@ -87,77 +88,90 @@ class _HomePageState extends State<HomePage>
             ),
           ),
 
-          Stack(
-            children: [
-              Positioned(
-                top: 250,
-                right: 250,
-                child: RotationTransition(
-                  turns: Tween<double>(begin: 0.0, end: (pi * 2).toDouble())
-                      .animate(animationController),
-                  child: Container(
-                    height: 250,
-                    width: 250,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: AssetImage(
-                          pt.allPlanets[0]['image'],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          // ListWheelScrollView.useDelegate(
-          //   itemExtent: 280,
-          //   physics: const FixedExtentScrollPhysics(),
-          //   offAxisFraction: 1.4,
-          //   onSelectedItemChanged: (index) {
-          //     setState(() {
-          //       currentIndex = index;
-          //     });
-          //   },
-          //   squeeze: 0.7,
-          //   childDelegate: ListWheelChildBuilderDelegate(
-          //     childCount: pt.allPlanets.length,
-          //     builder: (context, index) => TweenAnimationBuilder(
-          //         tween: Tween(begin: 0.0, end: pi * 2),
-          //         duration: const Duration(seconds: 5),
-          //         builder: (context, val, _) {
-          //           return GestureDetector(
-          //             onTap: () {
-          //               Navigator.of(context).pushNamed('planet_detail_page',
-          //                   arguments: pt.allPlanets[index]);
-          //             },
-          //             child: Hero(
-          //               tag: pt.allPlanets[index]['name'],
-          //               child: Container(
-          //                 height: currentIndex == index
-          //                     ? size.height * 0.65
-          //                     : size.height * 0.35,
-          //                 width: currentIndex == index
-          //                     ? size.width * 0.65
-          //                     : size.width * 0.35,
-          //                 decoration: BoxDecoration(
-          //                   shape: BoxShape.circle,
-          //                   image: DecorationImage(
-          //                     image: AssetImage(
-          //                       pt.allPlanets[index]['image'],
-          //                     ),
-          //                     fit: BoxFit.cover,
-          //                   ),
-          //                 ),
+          // Stack(
+          //   children: [
+          //     Positioned(
+          //       top: 250,
+          //       right: 250,
+          //       child: RotationTransition(
+          //         turns: Tween<double>(begin: 0.0, end: (pi * 2).toDouble())
+          //             .animate(animationController),
+          //         child: Container(
+          //           height: 250,
+          //           width: 250,
+          //           decoration: BoxDecoration(
+          //             shape: BoxShape.circle,
+          //             image: DecorationImage(
+          //               image: AssetImage(
+          //                 pt.allPlanets[0]['image'],
           //               ),
           //             ),
-          //           );
-          //         }),
-          //   ),
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //   ],
           // ),
+
+          ListWheelScrollView.useDelegate(
+            itemExtent: 280,
+            physics: const FixedExtentScrollPhysics(),
+            offAxisFraction: 1.4,
+            onSelectedItemChanged: (index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+            squeeze: 0.7,
+            childDelegate: ListWheelChildBuilderDelegate(
+              childCount: pt.allPlanets.length,
+              builder: (context, index) => AnimatedBuilder(
+                  animation: animationController,
+                  builder: (context, child) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          Navigator.of(context).pushNamed('detail_page',
+                              arguments: pt.allPlanets[index]);
+                        });
+                      },
+                      child: Transform.rotate(
+                        angle: rotate.value,
+                        child: Hero(
+                          tag: pt.allPlanets[index]['name'],
+                          child: Container(
+                            height: currentIndex == index
+                                ? size.height * 0.65
+                                : size.height * 0.35,
+                            width: currentIndex == index
+                                ? size.width * 0.65
+                                : size.width * 0.35,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  pt.allPlanets[index]['image'],
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+            ),
+          ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            Navigator.of(context).pushNamed('detail_page',
+                arguments: pf.allPlanets[pf.currentIndex]);
+          });
+        },
+        child: const Icon(Icons.navigate_next),
       ),
     );
   }

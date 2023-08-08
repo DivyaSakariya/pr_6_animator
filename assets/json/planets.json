@@ -2,7 +2,7 @@
   {
     "position": "1",
     "name": "Sun",
-    "image": "assets/images/sun.gif",
+    "image": "assets/images/sun.png",
     "year" : "60,990 Earth Day",
     "type" :"Gas Glant",
     "radius" : "696,340.0 KM",
@@ -13,7 +13,7 @@
   {
     "position": "2",
     "name": "Mercury",
-    "image": "assets/images/mercury.gif",
+    "image": "assets/images/mercury.png",
     "year" : "88 Earth Day",
     "type" : "Terrestrial",
     "radius" : "2439.4 KM",
@@ -24,7 +24,7 @@
   {
     "position": "3",
     "name": "Venus",
-    "image": "assets/images/venus.gif",
+    "image": "assets/images/venus.png",
     "year" : "225 Earth Days",
     "type" :"Terrestrial",
     "radius" : "6051.8 KM",
@@ -35,7 +35,7 @@
   {
     "position": "4",
     "name": "Earth",
-    "image": "assets/images/earth.gif",
+    "image": "assets/images/earth.png",
     "year" : "365 Earth Day",
     "type" : "Terrestrial",
     "radius" : "339.6 KM",
@@ -46,7 +46,7 @@
   {
     "position": "5",
     "name": "Mars",
-    "image": "assets/images/mars.gif",
+    "image": "assets/images/mars.png",
     "year" : "687 Earth Day",
     "type" :"Terrestrial",
     "radius" : "3396.2 KM",
@@ -57,7 +57,7 @@
   {
     "position": "6",
     "name": "Jupiter",
-    "image": "assets/images/jupiter.gif",
+    "image": "assets/images/jupiter.png",
     "year" : "4333 Earth Day",
     "type" :"Terrestrial",
     "radius" : "71492.0 KM",
@@ -68,7 +68,7 @@
   {
     "position": "7",
     "name": "Saturn",
-    "image": "assets/images/saturn.gif",
+    "image": "assets/images/saturn.png",
     "year" : "10,759 Earth Day",
     "type" :"Gas Glant",
     "radius" : "60268.0 KM",
@@ -79,7 +79,7 @@
   {
     "position": "8",
     "name": "Uranus",
-    "image": "assets/images/uranus.gif",
+    "image": "assets/images/uranus.png",
     "year" : "31,000 Earth Day",
     "type" :"Ice Giant",
     "radius" : "25,362.0 KM",
@@ -90,7 +90,7 @@
   {
     "position": "9",
     "name": "Neptune",
-    "image": "assets/images/neptune.gif",
+    "image": "assets/images/neptune.png",
     "year" : "60,990 Earth Day",
     "type" :"Gas Glant",
     "radius" : "26764.0 KM",

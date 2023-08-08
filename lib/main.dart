@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pr_6_animator/controllers/planet_controller.dart';
 import 'package:pr_6_animator/views/screens/detail_page.dart';
 import 'package:pr_6_animator/views/screens/home_page.dart';
+import 'package:pr_6_animator/views/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -23,8 +24,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
+      initialRoute: 'splash_screen',
       routes: {
         '/': (context) => const HomePage(),
+        'splash_screen': (context) => const SplashScreen(),
         'detail_page': (context) => const DetailPage(),
       },
     );
