@@ -41,8 +41,8 @@ class _DetailPageState extends State<DetailPage>
 
   @override
   Widget build(BuildContext context) {
-    // dynamic data = ModalRoute.of(context)!.settings.arguments;
-    dynamic data = Provider.of<PlanetController>(context).allPlanets[2];
+    dynamic data = ModalRoute.of(context)!.settings.arguments;
+    // dynamic data = Provider.of<PlanetController>(context).allPlanets[2];
     return Scaffold(
       body: Stack(
         children: [
@@ -62,11 +62,11 @@ class _DetailPageState extends State<DetailPage>
           ),
           Align(
             alignment: const Alignment(-0.9, -0.9),
-            child: IconButton(
-              onPressed: () {
+            child: GestureDetector(
+              onTap: () {
                 Navigator.of(context).pop();
               },
-              icon: const Icon(
+              child: const Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,
               ),
@@ -91,126 +91,125 @@ class _DetailPageState extends State<DetailPage>
                     ),
                   ),
                   AnimatedBuilder(
-                    animation: animationController,
-                    builder: (context, child) {
-                      return Card(
-                        color: const Color(0xff30315D).withOpacity(0.5),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                data['name'],
-                                style: const TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                      animation: animationController,
+                      builder: (context, child) {
+                        return Card(
+                          color: const Color(0xff30315D).withOpacity(0.5),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  data['name'],
+                                  style: const TextStyle(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 15),
-                              Text(
-                                data['type'],
-                                style: const TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
+                                const SizedBox(height: 15),
+                                Text(
+                                  data['type'],
+                                  style: const TextStyle(
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 14),
-                              Text(
-                                data['description'],
-                                style: const TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.white,
+                                const SizedBox(height: 14),
+                                Text(
+                                  data['description'],
+                                  style: const TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 12),
-                              Row(
-                                children: [
-                                  const Text(
-                                    "Years:-",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white70,
+                                const SizedBox(height: 12),
+                                Row(
+                                  children: [
+                                    const Text(
+                                      "Years:-",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white70,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    data['year'],
-                                    style: const TextStyle(
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
+                                    Text(
+                                      data['year'],
+                                      style: const TextStyle(
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 12),
-                              Row(
-                                children: [
-                                  const Text(
-                                    "Radius:-",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white70,
+                                  ],
+                                ),
+                                const SizedBox(height: 12),
+                                Row(
+                                  children: [
+                                    const Text(
+                                      "Radius:-",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white70,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    data['radius'],
-                                    style: const TextStyle(
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
+                                    Text(
+                                      data['radius'],
+                                      style: const TextStyle(
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 12),
-                              Row(
-                                children: [
-                                  const Text(
-                                    "Velocity:-",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white70,
+                                  ],
+                                ),
+                                const SizedBox(height: 12),
+                                Row(
+                                  children: [
+                                    const Text(
+                                      "Velocity:-",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white70,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    data['velocity'],
-                                    style: const TextStyle(
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
+                                    Text(
+                                      data['velocity'],
+                                      style: const TextStyle(
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 12),
-                              Row(
-                                children: [
-                                  const Text(
-                                    "Distance:-",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white70,
+                                  ],
+                                ),
+                                const SizedBox(height: 12),
+                                Row(
+                                  children: [
+                                    const Text(
+                                      "Distance:-",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white70,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    "${data['distance']} Light Years",
-                                    style: const TextStyle(
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
+                                    Text(
+                                      "${data['distance']} Light Years",
+                                      style: const TextStyle(
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }
-                  ),
+                        );
+                      }),
                 ],
               ),
             ),
