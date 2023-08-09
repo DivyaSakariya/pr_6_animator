@@ -78,6 +78,12 @@ and entertaining journey through the galaxy.
 
 ### Video:
 
+
+
+https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/ab4ed4cc-f608-4cb3-8cef-c2f0c53420ed
+
+
+
 ### ScreebShots:
 
 <img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/cb23b507-bb6f-4f47-9c14-2f19336c465c" width = "250"></img>
