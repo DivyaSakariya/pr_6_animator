@@ -74,3 +74,22 @@ and entertaining journey through the galaxy.
 - User satisfaction with the application’s functionality and UI/UX
 - Quality of code and project structure
 - Presentation
+
+
+### Video:
+
+### ScreebShots:
+
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/cb23b507-bb6f-4f47-9c14-2f19336c465c" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/1051f327-3218-4cbb-8775-6b0aabb8c351" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/236d5ed4-1d5a-48ed-bfff-d7187bfdd05d" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/72b24877-5213-4f47-8a16-11cbff51cf79" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/b2e4ff30-6d48-46ed-b21d-7d09cc02a12d" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/587b05b3-16e5-4062-826f-40e855659ddb" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/fb62e183-bd71-4dc4-bf81-301ba6bb1f8c" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/7f0cefdc-23ca-45ad-af05-2ae717f122b8" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/910a2f10-7492-4934-af55-22931b82a903" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/51340ac5-9467-48b5-8b2b-8b03f84376ee" width = "250"></img>
+<img src = "https://github.com/DivyaSakariya/pr_6_animator/assets/113959976/d5b62968-3b6b-4fa5-bcd6-8ec7173d57db" width = "250"></img>
+
+
