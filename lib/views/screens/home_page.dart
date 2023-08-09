@@ -37,19 +37,6 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-  Map sunMap = {
-    "position": "1",
-    "name": "Sun",
-    "image": "assets/images/sun.gif",
-    "year": "60,990 Earth Day",
-    "type": "Gas Glant",
-    "radius": "696,340.0 KM",
-    "velocity": "220",
-    "distance": "0",
-    "description":
-        "The Sun (or Sol), is the star at the centre of our solar system and is responsible for the Earth’s climate and weather. The Sun is an almost perfect sphere with a difference of just 10km in diameter between the poles and the equator. The average radius of the Sun is 695,508 km (109.2 x that of the Earth) of which 20–25% is the core."
-  };
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -72,27 +59,30 @@ class _HomePageState extends State<HomePage>
               ),
             ),
           ),
-          const Align(
-            alignment: Alignment(0, -1),
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 30),
-              child: Text(
-                "Solar System",
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
           Align(
-            alignment: const Alignment(1, -1),
-            child: SizedBox(
-              height: 150,
-              child: Image.asset(
-                sunMap['image'],
-                fit: BoxFit.fill,
+            alignment: const Alignment(0, -1),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const Spacer(
+                    flex: 2,
+                  ),
+                  const Text(
+                    "Solar System",
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Spacer(),
+                  Transform.scale(
+                    scale: 0.6,
+                    child: Switch(value: true, onChanged: (val) {}),
+                  ),
+                ],
               ),
             ),
           ),
@@ -162,27 +152,30 @@ class _HomePageState extends State<HomePage>
                         angle: rotate.value,
                         child: Hero(
                           tag: pt.allPlanets[index]['name'],
-                          child: Container(
-                            height: currentIndex == index
-                                ? currentIndex == 6
-                                    ? size.height * 0.95
-                                    : size.height * 0.35
-                                : size.height * 0.35,
-                            width: currentIndex == index
-                                ? currentIndex == 6
-                                    ? size.height * 0.95
-                                    : size.height * 0.35
-                                : size.width * 0.35,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  pt.allPlanets[index]['image'],
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                          child: Image.asset(
+                            pt.allPlanets[index]['image'],
                           ),
+                          // Container(
+                          //   height: currentIndex == index
+                          //       ? currentIndex == 6
+                          //           ? size.height * 0.95
+                          //           : size.height * 0.35
+                          //       : size.height * 0.35,
+                          //   width: currentIndex == index
+                          //       ? currentIndex == 6
+                          //           ? size.height * 0.95
+                          //           : size.height * 0.35
+                          //       : size.width * 0.35,
+                          //   decoration: BoxDecoration(
+                          //     shape: BoxShape.circle,
+                          //     image: DecorationImage(
+                          //       image: AssetImage(
+                          //         pt.allPlanets[index]['image'],
+                          //       ),
+                          //       fit: BoxFit.cover,
+                          //     ),
+                          //   ),
+                          // ),
                         ),
                       ),
                     );
