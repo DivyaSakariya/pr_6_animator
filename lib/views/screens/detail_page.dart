@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../controllers/theme_controller.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -41,7 +44,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
       ),
     );
 
-    positionName = Tween(begin: 235.0, end: 0.0).animate(
+    positionName = Tween(begin: 245.0, end: 0.0).animate(
       CurvedAnimation(
         parent: positionController,
         curve: const Interval(
@@ -51,7 +54,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
         ),
       ),
     );
-    positionType = Tween(begin: -235.0, end: 0.0).animate(
+    positionType = Tween(begin: -245.0, end: 0.0).animate(
       CurvedAnimation(
         parent: positionController,
         curve: const Interval(
@@ -76,27 +79,8 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     dynamic data = ModalRoute.of(context)!.settings.arguments;
-    // dynamic data = Provider.of<PlanetController>(context).allPlanets[2];
+    dynamic themePro = Provider.of<ThemeController>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          data['name'],
-          style: const TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.black,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-          ),
-        ),
-      ),
       body: Stack(
         children: [
           Container(
@@ -108,7 +92,9 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                   Colors.black.withOpacity(0.75),
                   BlendMode.darken,
                 ),
-                image: const AssetImage('assets/images/background.jpg'),
+                image: themePro!.isLight
+                    ? const AssetImage('assets/images/bg_light.jpg')
+                    : const AssetImage('assets/images/background.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -141,7 +127,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                 opacity: opacity.value,
                                 child: Card(
                                   color:
-                                      const Color(0xff30315D).withOpacity(0.5),
+                                      Color(themePro.isLight ? 0xff00416A : 0xff30315D).withOpacity(0.5),
                                   child: Padding(
                                     padding: const EdgeInsets.all(16),
                                     child: Column(
@@ -279,6 +265,15 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                       ],
                     );
                   }),
+            ),
+          ),
+          Align(
+            alignment: const Alignment(-0.9, -0.9),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(Icons.arrow_back_ios,color: Colors.white,),
             ),
           ),
         ],

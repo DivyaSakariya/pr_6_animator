@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr_6_animator/controllers/planet_controller.dart';
+import 'package:pr_6_animator/controllers/theme_controller.dart';
 import 'package:pr_6_animator/views/screens/detail_page.dart';
 import 'package:pr_6_animator/views/screens/home_page.dart';
 import 'package:pr_6_animator/views/screens/splash_screen.dart';
@@ -7,8 +8,14 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => PlanetController(),
+    MultiProvider(providers: [
+      ChangeNotifierProvider(
+        create: (context) => PlanetController(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => ThemeController(),
+      ),
+    ],
       child: const MyApp(),
     ),
   );

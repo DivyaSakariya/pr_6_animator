@@ -15,7 +15,6 @@ class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late bool animate;
   late bool positionText;
-  late MyAnimation animatePosition;
 
   @override
   void initState() {
@@ -64,9 +63,9 @@ class _SplashScreenState extends State<SplashScreen>
                 left: 22,
                 right: 22,
                 bottom: positionText ? 40 : -150,
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       "Discover Your",
                       style: TextStyle(
@@ -91,20 +90,4 @@ class _SplashScreenState extends State<SplashScreen>
       ),
     );
   }
-}
-
-class MyAnimation {
-  final double? topAfter, leftAfter, bottomAfter, rightAfter;
-  final double? topBefore, leftBefore, bottomBefore, rightBefore;
-
-  MyAnimation({
-    this.topAfter,
-    this.leftAfter,
-    this.bottomAfter,
-    this.rightAfter,
-    this.topBefore,
-    this.leftBefore,
-    this.bottomBefore,
-    this.rightBefore,
-  });
 }
